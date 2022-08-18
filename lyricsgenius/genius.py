@@ -145,7 +145,7 @@ class Genius(API, PublicAPI):
             rem = div.find("div", class_=re.compile("Lyrics__Footer"))
             if rem:
                 rem.replace_with("")
-            header = div.find("div", class_=re.compile("TextLabel"))
+            header = div.find("div", class_=re.compile("Lyrics__Container"))
             if header:
                 header.replace_with("")
         lyrics = div.get_text()
