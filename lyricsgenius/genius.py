@@ -134,7 +134,7 @@ class Genius(API, PublicAPI):
         )
 
         # Determine the class of the div
-        div = html.find("div", class_=re.compile("Lyrics__Root"))
+        div = html.find("div", class_=re.compile("^lyrics$|Lyrics__Root"))
         if div is None:
             if self.verbose:
                 print("Couldn't find the lyrics section. "
@@ -145,6 +145,9 @@ class Genius(API, PublicAPI):
             rem = div.find("div", class_=re.compile("Lyrics__Footer"))
             if rem:
                 rem.replace_with("")
+            header = div.find("h2", class_=re.compile("TextLabel"))
+            if header:
+                header.replace_with("")
         lyrics = div.get_text()
 
         # Remove [Verse], [Bridge], etc.
