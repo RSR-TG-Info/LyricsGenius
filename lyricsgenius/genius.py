@@ -134,7 +134,7 @@ class Genius(API, PublicAPI):
         )
 
         # Determine the class of the div
-        div = html.find("div", class_=re.compile("^lyrics$|Lyrics__Root"))
+        div = html.find("div", class_=re.compile("Lyrics__Root"))
         if div is None:
             if self.verbose:
                 print("Couldn't find the lyrics section. "
