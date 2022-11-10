@@ -519,7 +519,7 @@ class Genius(API, PublicAPI):
             # Exit the search if we couldn't find an artist by the given name
             if not found_artist:
                 if self.verbose:
-                    #print("No results found for '{a}'.".format(a=search_term))
+                    print("No results found for '{a}'.".format(a=search_term))
                 return None
             # Assume the top search result is the intended artist
             return found_artist['id']
