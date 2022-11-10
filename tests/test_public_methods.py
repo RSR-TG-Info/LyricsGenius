@@ -12,7 +12,7 @@ class TestAlbumMethods(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        print("\n---------------------\nSetting up album methods tests...\n")
+        #print("\n---------------------\nSetting up album methods tests...\n")
 
         cls.album_id = 104614
 
@@ -51,7 +51,7 @@ class TestAnnotationMethods(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        print("\n---------------------\nSetting up annotation methods tests...\n")
+        #print("\n---------------------\nSetting up annotation methods tests...\n")
 
         cls.annotation_id = 10225840
 
@@ -75,7 +75,7 @@ class TestArticleMethods(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        print("\n---------------------\nSetting up article methods tests...\n")
+        #print("\n---------------------\nSetting up article methods tests...\n")
 
         cls.article_id = 11880
 
@@ -99,7 +99,7 @@ class TestArtistMethods(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        print("\n---------------------\nSetting up artist methods tests...\n")
+        #print("\n---------------------\nSetting up artist methods tests...\n")
 
         cls.artist_id = 1665
 
@@ -140,7 +140,7 @@ class TestCoverArtMethods(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        print("\n---------------------\nSetting up cover arts methods tests...\n")
+        #print("\n---------------------\nSetting up cover arts methods tests...\n")
 
         cls.album_id = 104614
 
@@ -153,7 +153,7 @@ class TestDiscussionMethods(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        print("\n---------------------\nSetting up discussion methods tests...\n")
+        #print("\n---------------------\nSetting up discussion methods tests...\n")
 
 #        cls.discussion_id = 123
 #
@@ -174,7 +174,7 @@ class TestLeaderboardMethods(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        print("\n---------------------\nSetting up leaerboard methods tests...\n")
+        #print("\n---------------------\nSetting up leaerboard methods tests...\n")
 
     def test_leaderboard(self):
         r = client.leaderboard()
@@ -189,7 +189,7 @@ class TestQuestionMethods(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        print("\n---------------------\nSetting up question methods tests...\n")
+        #print("\n---------------------\nSetting up question methods tests...\n")
 
         cls.album_id = 104614
 
@@ -202,7 +202,7 @@ class TestReferentMethods(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        print("\n---------------------\nSetting up referent methods tests...\n")
+        #print("\n---------------------\nSetting up referent methods tests...\n")
 
         cls.web_page_id = 10347
         cls.referent_ids = [20793764, 20641014]
@@ -221,7 +221,7 @@ class TestSearchMethods(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        print("\n---------------------\nSetting up search methods tests...\n")
+        #print("\n---------------------\nSetting up search methods tests...\n")
 
         cls.search_term = 'test'
 
@@ -266,7 +266,7 @@ class TestSongMethods(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        print("\n---------------------\nSetting up song methods tests...\n")
+        #print("\n---------------------\nSetting up song methods tests...\n")
 
         cls.song_id = 378195
 
@@ -291,7 +291,7 @@ class TestUserMethods(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        print("\n---------------------\nSetting up user methods tests...\n")
+        #print("\n---------------------\nSetting up user methods tests...\n")
 
         cls.user_id = 1
 
@@ -355,7 +355,7 @@ class TestVideoMethods(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        print("\n---------------------\nSetting up video methods tests...\n")
+        #print("\n---------------------\nSetting up video methods tests...\n")
 
         cls.video_id = 18681
 
@@ -375,7 +375,7 @@ class TestMiscMethods(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        print("\n---------------------\nSetting up misc methods tests...\n")
+        #print("\n---------------------\nSetting up misc methods tests...\n")
 
         # cls.line_item_id = 146262999
         cls.annotation_id = 10225840
