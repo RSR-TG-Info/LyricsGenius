@@ -137,9 +137,9 @@ class Genius(API, PublicAPI):
         div = html.find("div", class_=re.compile("^lyrics$|Lyrics__Root"))
         if div is None:
             if self.verbose:
-                print("Couldn't find the lyrics section. "
-                      "Please report this if the song has lyrics.\n"
-                      "Song URL: https://genius.com/{}".format(path))
+                #print("Couldn't find the lyrics section. "
+                      #"Please report this if the song has lyrics.\n"
+                      #"Song URL: https://genius.com/{}".format(path))
             return None
         else:
             rem = div.find("div", class_=re.compile("Lyrics__Footer"))
@@ -306,11 +306,11 @@ class Genius(API, PublicAPI):
         msg = "You must pass either a `name` or an `album_id`."
         assert any([name, album_id]), msg
 
-        if self.verbose and name:
-            if artist:
-                print('Searching for "{s}" by {a}...'.format(s=name, a=artist))
-            else:
-                print('Searching for "{s}"...'.format(s=name))
+        #if self.verbose and name:
+            #if artist:
+                #print('Searching for "{s}" by {a}...'.format(s=name, a=artist))
+            #else:
+                #print('Searching for "{s}"...'.format(s=name))
 
         if album_id:
             album_info = self.album(album_id, text_format).get('album')
@@ -325,7 +325,7 @@ class Genius(API, PublicAPI):
         # Otherwise, move forward with processing the search results
         if album_info is None:
             if self.verbose and name:
-                print("No results found for: '{s}'".format(s=search_term))
+                #print("No results found for: '{s}'".format(s=search_term))
             return None
 
         album_id = album_info['id']
@@ -394,11 +394,11 @@ class Genius(API, PublicAPI):
         if title is None and song_id is None:
             assert any([title, song_id]), msg
 
-        if self.verbose and title:
-            if artist:
-                print('Searching for "{s}" by {a}...'.format(s=title, a=artist))
-            else:
-                print('Searching for "{s}"...'.format(s=title))
+        #if self.verbose and title:
+            #if artist:
+                #print('Searching for "{s}" by {a}...'.format(s=title, a=artist))
+            #else:
+                #print('Searching for "{s}"...'.format(s=title))
 
         if song_id:
             result = self.song(song_id)['song']
@@ -519,7 +519,7 @@ class Genius(API, PublicAPI):
             # Exit the search if we couldn't find an artist by the given name
             if not found_artist:
                 if self.verbose:
-                    print("No results found for '{a}'.".format(a=search_term))
+                    #print("No results found for '{a}'.".format(a=search_term))
                 return None
             # Assume the top search result is the intended artist
             return found_artist['id']
@@ -579,15 +579,15 @@ class Genius(API, PublicAPI):
                 result = artist.add_song(song, verbose=False,
                                          include_features=include_features)
                 if result is not None and self.verbose:
-                    print('Song {n}: "{t}"'.format(n=artist.num_songs,
-                                                   t=safe_unicode(song.title)))
+                    #print('Song {n}: "{t}"'.format(n=artist.num_songs,
+                                                   #t=safe_unicode(song.title)))
 
                 # Exit search if the max number of songs has been met
                 reached_max_songs = max_songs and artist.num_songs >= max_songs
                 if reached_max_songs:
                     if self.verbose:
-                        print(('\nReached user-specified song limit ({m}).'
-                               .format(m=max_songs)))
+                        #print(('\nReached user-specified song limit ({m}).'
+                               #.format(m=max_songs)))
                     break
 
             # Move on to next page of search results
@@ -596,7 +596,7 @@ class Genius(API, PublicAPI):
                 break  # Exit search when last page is reached
 
         if self.verbose:
-            print('Done. Found {n} songs.'.format(n=artist.num_songs))
+            #print('Done. Found {n} songs.'.format(n=artist.num_songs))
         return artist
 
     def save_artists(self, artists, filename="artist_lyrics", overwrite=False,
