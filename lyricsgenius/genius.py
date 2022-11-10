@@ -137,9 +137,9 @@ class Genius(API, PublicAPI):
         div = html.find("div", class_=re.compile("^lyrics$|Lyrics__Root"))
         if div is None:
             if self.verbose:
-                #print("Couldn't find the lyrics section. "
-                      #"Please report this if the song has lyrics.\n"
-                      #"Song URL: https://genius.com/{}".format(path))
+                print("Couldn't find the lyrics section. "
+                      "Please report this if the song has lyrics.\n"
+                      "Song URL: https://genius.com/{}".format(path))
             return None
         else:
             rem = div.find("div", class_=re.compile("Lyrics__Footer"))
