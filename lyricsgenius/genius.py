@@ -325,7 +325,7 @@ class Genius(API, PublicAPI):
         # Otherwise, move forward with processing the search results
         if album_info is None:
             if self.verbose and name:
-                #print("No results found for: '{s}'".format(s=search_term))
+                print("No results found for: '{s}'".format(s=search_term))
             return None
 
         album_id = album_info['id']
@@ -579,15 +579,15 @@ class Genius(API, PublicAPI):
                 result = artist.add_song(song, verbose=False,
                                          include_features=include_features)
                 if result is not None and self.verbose:
-                    #print('Song {n}: "{t}"'.format(n=artist.num_songs,
-                                                   #t=safe_unicode(song.title)))
+                    print('Song {n}: "{t}"'.format(n=artist.num_songs,
+                                                   t=safe_unicode(song.title)))
 
                 # Exit search if the max number of songs has been met
                 reached_max_songs = max_songs and artist.num_songs >= max_songs
                 if reached_max_songs:
                     if self.verbose:
-                        #print(('\nReached user-specified song limit ({m}).'
-                               #.format(m=max_songs)))
+                        print(('\nReached user-specified song limit ({m}).'
+                               .format(m=max_songs)))
                     break
 
             # Move on to next page of search results
@@ -596,7 +596,7 @@ class Genius(API, PublicAPI):
                 break  # Exit search when last page is reached
 
         if self.verbose:
-            #print('Done. Found {n} songs.'.format(n=artist.num_songs))
+            print('Done. Found {n} songs.'.format(n=artist.num_songs))
         return artist
 
     def save_artists(self, artists, filename="artist_lyrics", overwrite=False,
