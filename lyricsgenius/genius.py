@@ -306,11 +306,11 @@ class Genius(API, PublicAPI):
         msg = "You must pass either a `name` or an `album_id`."
         assert any([name, album_id]), msg
 
-        #if self.verbose and name:
-            #if artist:
-                #print('Searching for "{s}" by {a}...'.format(s=name, a=artist))
-            #else:
-                #print('Searching for "{s}"...'.format(s=name))
+        if self.verbose and name:
+            if artist:
+                print('Searching for "{s}" by {a}...'.format(s=name, a=artist))
+            else:
+                print('Searching for "{s}"...'.format(s=name))
 
         if album_id:
             album_info = self.album(album_id, text_format).get('album')
@@ -394,11 +394,11 @@ class Genius(API, PublicAPI):
         if title is None and song_id is None:
             assert any([title, song_id]), msg
 
-        #if self.verbose and title:
-            #if artist:
-                #print('Searching for "{s}" by {a}...'.format(s=title, a=artist))
-            #else:
-                #print('Searching for "{s}"...'.format(s=title))
+        if self.verbose and title:
+            if artist:
+                print('Searching for "{s}" by {a}...'.format(s=title, a=artist))
+            else:
+                print('Searching for "{s}"...'.format(s=title))
 
         if song_id:
             result = self.song(song_id)['song']
