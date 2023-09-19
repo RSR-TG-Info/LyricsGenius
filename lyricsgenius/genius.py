@@ -148,6 +148,9 @@ class Genius(API, PublicAPI):
             header = div.find("h2", class_=re.compile("TextLabel"))
             if header:
                 header.replace_with("")
+            controls = div.find("div", class_=re.compile("LyricsControls"))
+            if controls:
+                controls.replace_with("")
         lyrics = div.get_text()
 
         # Remove [Verse], [Bridge], etc.
