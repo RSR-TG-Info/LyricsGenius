@@ -142,13 +142,13 @@ class Genius(API, PublicAPI):
                       "Song URL: https://genius.com/{}".format(path))
             return None
         else:
-            rem = divs.find_all("div", class_=re.compile("Lyrics__Footer"))
+            rem = divs.find("div", class_=re.compile("Lyrics__Footer"))
             if rem:
                 rem.replace_with("")
-            header = divs.find_all("h2", class_=re.compile("TextLabel"))
+            header = divs.find("h2", class_=re.compile("TextLabel"))
             if header:
                 header.replace_with("")
-            controls = divs.find_all("div", class_=re.compile("LyricsControls"))
+            controls = divs.find("div", class_=re.compile("LyricsControls"))
             if controls:
                 controls.replace_with("")
         lyrics = "\n".join([div.get_text() for div in divs])
