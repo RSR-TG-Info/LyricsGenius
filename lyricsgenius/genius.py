@@ -134,24 +134,24 @@ class Genius(API, PublicAPI):
         )
 
         # Determine the class of the div
-        div = html.find("div", class_=re.compile("^lyrics$|Lyrics__Root"))
-        if div is None:
+        divs = html.find_all("div", class_=re.compile("^lyrics$|Lyrics__Container"))
+        if divs is None or len(divs) <= 0:
             if self.verbose:
                 print("Couldn't find the lyrics section. "
                       "Please report this if the song has lyrics.\n"
                       "Song URL: https://genius.com/{}".format(path))
             return None
         else:
-            rem = div.find("div", class_=re.compile("Lyrics__Footer"))
+            rem = divs.find_all("div", class_=re.compile("Lyrics__Footer"))
             if rem:
                 rem.replace_with("")
-            header = div.find("h2", class_=re.compile("TextLabel"))
+            header = divs.find_all("h2", class_=re.compile("TextLabel"))
             if header:
                 header.replace_with("")
-            controls = div.find("div", class_=re.compile("LyricsControls"))
+            controls = divs.find_all("div", class_=re.compile("LyricsControls"))
             if controls:
                 controls.replace_with("")
-        lyrics = div.get_text()
+        lyrics = "\n".join([div.get_text() for div in divs])
 
         # Remove [Verse], [Bridge], etc.
         if self.remove_section_headers or remove_section_headers:
